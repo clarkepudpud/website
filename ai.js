@@ -64,7 +64,7 @@ sendBtn.addEventListener("click", () => {
   const item = findClosestMatch(userText);
 
   if (item) {
-  const language = detectLanguage(userText); // 🔍 detect the language
+  const language = detectLanguage(userText); // detect the language
 
   const answerOptions = item.answer[language] || item.answer['en'];
   const answerText = Array.isArray(answerOptions)
@@ -238,7 +238,7 @@ const faqData = [
 
 // Load questions on sidebar
 faqData.forEach((item) => {
-    // I-skip ang display kung ayaw mong lumabas sa listahan
+    // I-skip ang display (if you don't wan't to display in suggested question )
   if (item.hideFromList) return;
 
   const li = document.createElement("li");

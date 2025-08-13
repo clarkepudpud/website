@@ -1,7 +1,7 @@
 const upload = document.getElementById('profileUpload');
 const preview = document.getElementById('profilePreview');
 
-// ==== New Section Toggle Logic ====
+//  New Section Toggle Logic
 document.addEventListener("DOMContentLoaded", function () {
   const sections = ['home', 'about', 'projects', 'experience', 'contact', 'faq'];
   const navLinks = document.querySelectorAll('.nav-menu a');

@@ -9,22 +9,22 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif; /* Font style */
-  background: #f5f5f5; /* Kulay ng background */
+  background: #f5f5f5; /* background color */
 }
 
-/*  Layout ng buong page: sidebar + chat area */
+/*  Layout to all page: sidebar + chat area */
 .main-layout {
-  display: flex; /* Gamitin ang Flexbox layout */
-  height: 100vh; /* Buong taas ng screen */
+  display: flex;
+  height: 100vh; /* screen */
 }
 
 /*  Sidebar (Suggested Questions) */
 .sidebar {
   width: 250px;
-  background: #1e293b; /* Madilim na kulay para sa sidebar */
+  background: #1e293b;
   color: white;
   padding: 20px;
-  overflow-y: auto; /* Scroll kapag sobrang haba ng laman */
+  overflow-y: auto; /* Scroll when chat area is full */
 }
 
 .sidebar h2 {
@@ -32,11 +32,11 @@ body {
 }
 
 .sidebar ul {
-  list-style: none; /* Alisin ang default na bullet points */
+  list-style: none; /* remove default bullet points */
   padding: 0;
 }
 
-/* 🟢 Button para sa mga tanong */
+/* Button fo questions */
 .sidebar li {
   padding: 10px;
   margin-bottom: 8px;
@@ -46,7 +46,7 @@ body {
 }
 
 .sidebar li:hover {
-  background: #475569; /* Hover effect */
+  background: #475569;
 }
 
 /*  Chat container (chat UI) */
@@ -74,7 +74,7 @@ body {
   background: #fefefe;
   display: flex;               /* layout */
   flex-direction: column;      /* para vertical layout */
-  gap: 10px;                   /* dagdag space bawat message */
+  gap: 10px;                   /* space per message */
 }
 
 .chat-bubble {
@@ -86,23 +86,23 @@ body {
 
 /*  Chat message bubbles */
 
-/* User (kanan) */
+/* User */
 .chat-bubble.user {
-  background: #dcf8c6;      /* Kulay ng user message */
-  align-self: flex-end;      /* pumunta sa kanan */
-  text-align: right;         /* text right-align din */
+  background: #dcf8c6;
+  align-self: flex-end;
+  text-align: right;
   border-bottom-right-radius: 0;
 }
 
-/* Bot (kaliwa) */
+/* Bot */
 .chat-bubble.bot {
-  background: #e5e5ea;     /* Kulay ng bot message */
-  align-self: flex-start;    /* pumunta sa kaliwa */
+  background: #e5e5ea;
+  align-self: flex-start;
   text-align: left;
   border-bottom-left-radius: 0;
 }
 
-/*  Input area: textbox at send button */
+/*  Input area: textbox send button */
 .input-area {
   display: flex;
   gap: 10px;
@@ -118,13 +118,12 @@ body {
 .input-area button {
   padding: 10px 15px;
   border: none;
-  background: #1e293b; /* Blue button */
+  background: #1e293b;
   color: white;
   border-radius: 5px;
   cursor: pointer;
 }
 
-/*  Follow-up buttons (nasa ilalim ng bot message) */
 .follow-up-btn {
   margin: 5px 5px 0 0;
   padding: 6px 10px;
@@ -144,7 +143,6 @@ body {
   padding: 0;
 }
 
-/* Make sure .main-layout fills the section */
 .faq-layout .main-layout {
   height: 100%;
 }
@@ -152,14 +150,14 @@ body {
 /* 📱 Responsive layout for FAQ section (mobile and tablets) */
 @media (max-width: 768px) {
   .main-layout {
-    flex-direction: column; /* Sidebar sa taas, chat area sa baba */
-    height: auto; /* Hayaan mag-adjust ang height */
+    flex-direction: column;
+    height: auto;
   }
 
   .sidebar {
-    width: 100%; /* Gawin buong lapad sa mobile */
+    width: 100%;
     padding: 15px;
-    max-height: 200px; /* Limit height para may scroll */
+    max-height: 200px;
     overflow-x: auto;
   }
 
@@ -175,16 +173,16 @@ body {
 
  @media (max-width: 768px) {
   .input-area {
-    flex-direction: row; /* ✔ Panatilihin na row layout kahit mobile */
+    flex-direction: row;
     align-items: center;
   }
 
   .input-area input {
-    flex: 1; /* ✔ Para sakupin ang natitirang space */
+    flex: 1;
   }
 
   .input-area button {
-    flex-shrink: 0; /* ✔ Panatilihing maliit ang button */
+    flex-shrink: 0;
   }
 
   .sidebar li {

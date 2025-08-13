@@ -1,8 +1,6 @@
 
 
-/* ===============================
-   [START] BODY Styling
-================================== */
+/* [START] BODY Styling */
 body {
   font-family: sans-serif;
   line-height: 1.6;
@@ -11,31 +9,24 @@ body {
   background-color: #f4f4f4;
   color: #333;
 }
-/* ===============================
-   [END] BODY Styling
-================================== */
 
-/* ===============================
-   [START] HEADER Styling
-================================== */
+/* Start header Styling */
 header {
   background-color: #222;
   color: #fff;
   padding: 20px;
 }
 
-/* Layout ng buong laman ng header */
+/* Layout belong in header */
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 50px; /* ✅ ito ang naglalayo sa header-text at profile pic */
+  gap: 50px;
 }
 
-/* ===============================
-   [HEADER TEXT: Pangalan, Title, Nav]
-================================== */
+/* Header text: name, tittle, nav */
 .header-text {
   display: flex;
   flex-direction: column;
@@ -55,17 +46,16 @@ header {
   font-size: 16px;
 }
 
-/* Clarke Pudpud link styling para magmukhang normal na text */
+/* Clarke Pudpud link styling */
 .header-text h1 a {
-  color: inherit;            /* Gamitin ang color ng parent, which is white from the header */
-  text-decoration: none;    /* Alisin ang underline */
+  color: inherit;
+  text-decoration: none;
 }
 
 .header-text h1 a:visited {
-  color: inherit;            /* Kapag na-click na, wag baguhin kulay */
+  color: inherit;
 }
 
-/* Para hindi magmukhang link si <a> */
 .header-link {
   text-decoration: none;
   color: inherit;
@@ -73,12 +63,10 @@ header {
 }
 
 .header-link:hover {
-  opacity: 0.9; /* Optional hover effect */
+  opacity: 0.9;
 }
 
-/* ===============================
-   [NAVIGATION Styling]
-================================== */
+/* nav styling  */
 .nav-menu {
   display: flex;
   flex-wrap: wrap;
@@ -96,9 +84,7 @@ header {
   text-decoration: underline;
 }
 
-/* ===============================
-   [PROFILE PICTURE Styling]
-================================== */
+/* profile picture styling */
 .profile-pic {
   width: 130px;
   height: 130px;
@@ -114,13 +100,7 @@ header {
   object-fit: cover;
 }
 
-/* ===============================
-   [END] HEADER Styling
-================================== */
-
-/* ===============================
-   [SECTION Styling]
-================================== */
+/* section styling */
 section {
   padding: 20px;
   margin: 10px auto;
@@ -129,11 +109,9 @@ section {
   border-radius: 10px;
 }
 
-/* ===============================
-   [LAYOUT SETUP - for sticky footer]
-================================== */
+/* layout setup for sticky footer */
 
-/* Gumawa ng flex layout sa buong page */
+/* all layout flex */
 html, body {
   height: 100%;
   margin: 0;
@@ -141,14 +119,12 @@ html, body {
   flex-direction: column;
 }
 
-/* Wrapper ng content para i-push ang footer sa baba */
+/* Wrapper content for push footer in buttom */
 .page-wrapper {
   flex: 1;
 }
 
-/* ===============================
-   [FOOTER Styling]
-================================== */
+/* footer styling */
 footer {
   background-color: #222;
   color: #fff;
