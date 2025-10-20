@@ -4,6 +4,19 @@ const questionButtons = document.getElementById("question-buttons");
 const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 
+// Function to send message and log to Vercel
+async function sendToAI(userInput, aiResponse) {
+  try {
+    await fetch('/api/log', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: userInput, answer: aiResponse })
+    });
+  } catch (err) {
+    console.error("Log failed:", err);
+  }
+}
+
 const textarea = document.getElementById('userInput');
 textarea.addEventListener('input', function () {
   this.style.height = 'auto';
@@ -65,43 +78,32 @@ sendBtn.addEventListener("click", () => {
   if (userText === "") return;
 
   addChatBubble("user", userText);
-  // Temporary log for user's message
-  logChat(userText, null);
 
   const item = findClosestMatch(userText);
 
   if (item) {
-  const language = detectLanguage(userText);
-  const answerOptions = item.answer[language] || item.answer['en'];
-  const answerText = Array.isArray(answerOptions)
-    ? answerOptions[Math.floor(Math.random() * answerOptions.length)]
-    : answerOptions;
+    const language = detectLanguage(userText);
 
+    const answerOptions = item.answer[language] || item.answer['en'];
+    const answerText = Array.isArray(answerOptions)
+      ? answerOptions[Math.floor(Math.random() * answerOptions.length)]
+      : answerOptions;
+
+    setTimeout(() => {
+      const followUpList = Array.isArray(item.followUps)
+        ? item.followUps
+        : item.followUps?.[language] || [];
+
+      addChatBubble("bot", answerText, followUpList);
+      sendToAI(userText, answerText);
+    }, 800);
+  } else {
   setTimeout(() => {
-    const followUpList = Array.isArray(item.followUps)
-      ? item.followUps
-      : item.followUps?.[language] || [];
-
-    addChatBubble("bot", answerText, followUpList);
-
-    // Log bot response (replace the last entry's answer)
-    if (chatLogs.length > 0) {
-      chatLogs[chatLogs.length - 1].answer = answerText;
-      localStorage.setItem("chatLogs", JSON.stringify(chatLogs));
-    }
-  }, 800);
-
-} else {
-  setTimeout(() => {
-    addChatBubble("bot", "Sorry, I don't have an answer to that question.");
-    // Log fallback response
-    if (chatLogs.length > 0) {
-      chatLogs[chatLogs.length - 1].answer = "Sorry, I don't have an answer to that question.";
-      localStorage.setItem("chatLogs", JSON.stringify(chatLogs));
-    }
+    const noAnswer = "Sorry, I don't have an answer to that question.";
+    addChatBubble("bot", noAnswer);
+    sendToAI(userText, noAnswer);
   }, 800);
 }
-
   userInput.value = "";
 });
 
@@ -608,49 +610,6 @@ try {
     hideFromList: true
   },
 ];
-
-// ====== CHAT LOGGER (local + exportable) ======
-let chatLogs = JSON.parse(localStorage.getItem("chatLogs")) || [];
-
-function logChat(question, answer) {
-  const entry = {
-    question: question,
-    answer: answer,
-    time: new Date().toLocaleString()
-  };
-
-  // 🧹 Limit logs to 500 entries (auto-trim)
-  if (chatLogs.length > 500) {
-    chatLogs.shift();
-  }
-
-  chatLogs.push(entry);
-  localStorage.setItem("chatLogs", JSON.stringify(chatLogs));
-
-  // 🔔 Visual save notification
-  const notice = document.createElement("div");
-  notice.textContent = "✅ Chat saved locally";
-  notice.classList.add("save-notice");
-  document.body.appendChild(notice);
-  setTimeout(() => notice.remove(), 1500);
-}
-
-function exportChatLogs() {
-  const blob = new Blob([JSON.stringify(chatLogs, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `chat_logs_${Date.now()}.json`;
-  a.click();
-}
-
-// Optional: shortcut key para i-download ang chat log (Ctrl + D)
-document.addEventListener("keydown", (e) => {
-  if (e.ctrlKey && e.key.toLowerCase() === "d") {
-    e.preventDefault();
-    exportChatLogs();
-  }
-});
 
 // Load questions on sidebar
 faqData.forEach((item) => {
