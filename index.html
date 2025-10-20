@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic settings page -->
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title tab in browser -->
+     <title>Clarke Pudpud | Developer</title>
+    
+    <!-- Link with CSS -->
+     <link rel="stylesheet" href="style.css" />
+     <link rel="stylesheet" href="ai.css" />
+
+  </head>
+ <body>
+    <!-- Wrapper for all inside the site except footer -->
+  <div class="page-wrapper">
+
+      <!-- Header section (name and nav menu) -->
+      <header>
+  <div class="header-content">
+
+    <!-- Profile Picture -->
+    <div class="profile-pic">
+  <img id="profileImg" src="profile/c40af285-065f-4035-8d94-fcf55caad92c.jpg" alt="Profile" style="cursor:pointer;">
+</div>
+
+<!-- Modal -->
+<div id="imgModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
+    <!-- Text and Navigation -->
+    <div class="header-text">
+
+      <!-- Name -->
+      <a href="#" id="homeBtn" class="header-link">
+        <h1>CLARKE PUDPUD</h1>
+        <p id="titleClick">AI DEVELOPER</p>
+      </a>
+
+      <!-- Navigation menu -->
+      <nav class="nav-menu">
+        <a href="#about">ABOUT</a>
+        <a href="#projects">PORTFOLIO</a>
+        <a href="#contact">CONTACT</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+    </div> <!-- close header-text div -->
+
+  </div> <!-- close header-content div -->
+</header>
+
+      <!-- Home section (default visible with 6 boxes) -->
+       <section id="home">
+        <div class="blank-container">
+          <div class="blank-box"></div>
+          <div class="blank-box"></div>
+          <div class="blank-box"></div>
+          <div class="blank-box"></div>
+          <div class="blank-box"></div>
+          <div class="blank-box"></div>
+        </div>
+       </section>
+
+    <!-- About section -->
+      <section id="about" style="display: none;">
+       <h2>About Me</h2>
+       <p>
+        I am Clarke Pudpud, an independent Full-Stack AI Developer
+        and creator of AC/ACI – an advanced multilingual AI chatbot capable of
+        understanding and responding in any language. I
+        specialize in building intelligent, secure, and user-friendly AI solutions
+        from the ground up, handling both the front-end for seamless user
+        interaction and the back-end for powerful, reliable AI processing.
+        <br><br>
+        Driven by innovation, I design and develop AI systems that are not only
+        functional but also highly adaptable for different platforms. My work on
+        AC/ACI reflects my passion for creating personalized and scalable AI
+        assistants that can help individuals and businesses improve
+        communication, productivity, and accessibility.
+        <br><br>
+        Whether working solo or collaborating with others, I approach every
+        project with precision, creativity, and the vision of bringing AI closer to
+        people’s daily lives.
+       </p>
+      </section>
+
+    <!-- Project section -->
+      <section id="projects" style="display: none;">
+        <h2>Projects</h2>
+        <ul>
+        </ul>
+      </section>
+
+    <!-- Experience section -->
+      <section id="experience" style="display: none;">
+        <h2>Experience</h2>
+        <ul>
+        </ul>
+      </section>
+
+    <!-- Contact section -->
+     <section id="contact" style="display: none;">
+        <h2>Contact</h2>
+         <p>Email: <a href="mailto:clarkepudpud@gmail.com">clarkepudpud@gmail.com</a></p>
+      </section>
+      
+    </div>
+
+    <!-- FAQ -->
+<section id="faq" class="faq-layout" style="display: none;">
+  <div class="main-layout">
+    <!-- Sidebar (suggested questions) -->
+    <div class="sidebar">
+      <h2>Suggested Questions:</h2>
+      <ul id="question-buttons"></ul>
+    </div>
+
+    <!-- Chat area: UI for user and bot interaction -->
+    <div class="chat-container">
+      <h1>Chat with AC</h1>
+      <div id="chatbox" class="chatbox"></div>
+
+      <!-- Input Box -->
+      <div class="input-area">
+        <textarea id="userInput" placeholder="Type a message or select a question..." rows="1"></textarea>
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer (copyright) -->
+     <footer id="siteFooter">
+      <p>&copy; 2025 Clarke Pudpud. All rights reserved.</p>
+     </footer>
+
+     <!-- Link external JS files -->
+      <script src="script.js"></script>
+      <script src="ai.js"></script>
+<!-- Highlight.js for syntax highlighting -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+ </body>
+</html>
