@@ -283,3 +283,24 @@ body {
     max-height: 400px;
   }
 }
+
+.save-notice {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4caf50;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 9999;
+  animation: fadeInOut 1.5s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(10px); }
+}

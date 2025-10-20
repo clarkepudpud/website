@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Logs (Private)</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const logs = JSON.parse(localStorage.getItem("chatLogs")) || [];
+      const pre = document.getElementById("logs");
+      pre.textContent = JSON.stringify(logs, null, 2);
+    });
+  </script>
+</head>
+<body style="background:#111;color:#0f0;font-family:monospace;padding:20px;">
+  <h2>📜 Chat Logs (Local Only)</h2>
+  <pre id="logs"></pre>
+</body>
+</html>
